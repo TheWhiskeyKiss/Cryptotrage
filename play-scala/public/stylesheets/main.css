@@ -1,0 +1,14 @@
+#bitfinexDiv{
+  border: 2px black solid;
+  text-align: center;
+  margin:auto;
+}
+table,th,td{
+  border: 1px black solid;
+  text-align: left;
+  margin: auto;
+  padding: 10px;
+}
+table{
+  border-collapse: collapse;
+}

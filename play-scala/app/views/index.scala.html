@@ -1,0 +1,41 @@
+@(tickers:List[Ticker])
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="@routes.Assets.versioned("javascripts/xlsx.full.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/FileSaver.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/tableToExcel.js")" type="text/javascript"></script>
+
+@main("Arbitrage") {
+<button id="xlsxbutton">Download Excel</button>
+<div id="bitfinexDiv">
+  <h1>Bitfinex</h1>
+  <table id='mytable'>
+    <thead>
+      <th>Symbol</th>
+      <th>mid</th>
+      <th>bid</th>
+      <th>ask</th>
+      <th>last_price</th>
+      <th>low</th>
+      <th>high</th>
+      <th>volume</th>
+      <th>timestamp</th>
+    </thead>
+    <tbody>
+      @tickers.map{t => 
+        <tr>
+          <td>@t.symbol</td>
+          <td>@t.mid</td>
+          <td>@t.bid</td>
+          <td>@t.ask</td>
+          <td>@t.last_price</td>
+          <td>@t.low</td>
+          <td>@t.high</td>
+          <td>@t.volume</td>
+          <td>@t.timestamp</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+}
