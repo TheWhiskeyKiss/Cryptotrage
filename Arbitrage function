@@ -1,21 +1,15 @@
 #Main Pair          EXAMPLE CURRENCY PAIRS
 #BTCUSD = 10000
 #Crypto Pairs
-#BTCEUR = 11000
-#BTCGBP = 15000
-#BTCJPY = 20000
+#BTCEUR = 11000, BTCGBP = 15000, BTCJPY = 20000
 #Fiat Pairs
-#EURUSD = 1
-#GBPUSD = 1
-#JPYUSD = 1
+#EURUSD = 1, GBPUSD = 1, JPYUSD = 1
 #EXAMPLE LISTS
-#Crypto_Pairs = [BTCEUR, BTCGBP, BTCJPY]
-#Fiat_Pairs = [EURUSD, GBPUSD, JPYUSD]
+#Crypto_Pairs = [BTCEUR, BTCGBP, BTCJPY], Fiat_Pairs = [EURUSD, GBPUSD, JPYUSD]
 
-def _difference(MP, CP, FP):
-  jump_one = 10000/MP
-  jump_two = jump_one*CP
-  final = jump_two*FP
-  percentage = ((final - MP)/MP)*100
+#percentage difference in a triangular arbitrage, example w/ex_pairs perc_diff(BTCUSD, BTCGBP, GBPUSD) returns 50.0 (50%)
+def perc_diff(main_pair, crypto_pair, fiat_pair):
+  Jump = ((1000/main_pair)*crypto_pair)*fiat_pair
+  percentage = ((Jump - 1000)/1000)*100
   return percentage
   
