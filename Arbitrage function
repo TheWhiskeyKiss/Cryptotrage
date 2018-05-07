@@ -1,25 +1,12 @@
-#Main Pair          EXAMPLE CURRENCY PAIRS
-#BTCUSD = 10000
-#Crypto Pairs
-#BTCEUR = 11000, BTCGBP = 15000, BTCJPY = 20000
-#Fiat Pairs
-#EURUSD = 1, GBPUSD = 1, JPYUSD = 1
-#EXAMPLE LISTS
-#Crypto_Pairs = [BTCEUR, BTCGBP, BTCJPY], Fiat_Pairs = [EURUSD, GBPUSD, JPYUSD]
-#Crypto_Fiat_Match = {BTCEUR:USDEUR, BTCGBP:USDGBP, BTCJPY:USDJPY}
+#EXAMPLE DATA
+#CRYPTO_PAIRS = {"BTCUSD":10000, "BTCEUR":11000, "BTCGBP":15000, "BTCJPY":20000}
+#FIAT_PAIRS = {"USDEUR":1, "USDGBP":1, "USDJPY":1}
 
-#percentage difference in a triangular arbitrage, example w/ex_pairs perc_diff(BTCUSD, BTCGBP, GBPUSD) returns 50.0 (50%)
+#percentage difference in a triangular arbitrage, 
+#example w/ex_pairs perc_diff(CRYPTO_PAIRS["BTCUSD"], CRYPTO_PAIRS["BTCGBP"], CRYPTO_PAIRS[GBPUSD]) returns 50.0 (50%)
 def perc_diff(main_pair, crypto_pair, fiat_pair):
   Jump = ((1000/main_pair)*crypto_pair)*fiat_pair
   percentage = ((Jump - 1000)/1000)*100
   return percentage
   
-#Takes the main_pair (in this case BTCUSD) and finds arbitrage percentage for the crypto (only BTC so far) and the matching return.
-#Using above example numbers returns list [10.0, 50.0, 100.0]
-#Issues to resolve: find a way to get all the matching pairs, expand to use more main_pairs and cryptocurrencies
-def arbitrage_finder(main_pair, crypto_fiat_match):
-  difference_list = []
-  for item in crypto_fiat_match:
-    difference_list.append(perc_diff(main_pair, item, crypto_fiat_match[item]))
-  return difference_list
-  
+#deleted arbitrage finder until solution for matching found
