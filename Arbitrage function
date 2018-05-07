@@ -3,7 +3,7 @@
 #FIAT_PAIRS = {"USDEUR":1, "USDGBP":1, "USDJPY":1}
 
 #percentage difference in a triangular arbitrage, 
-#example w/ex_pairs perc_diff(CRYPTO_PAIRS["BTCUSD"], CRYPTO_PAIRS["BTCGBP"], CRYPTO_PAIRS[GBPUSD]) returns 50.0 (50%)
+#example w/ex_pairs perc_diff(CRYPTO_PAIRS["BTCUSD"], CRYPTO_PAIRS["BTCGBP"], CRYPTO_PAIRS["GBPUSD"]) returns 50.0 (50%)
 def perc_diff(main_pair, crypto_pair, fiat_pair):
   Jump = ((1000/main_pair)*crypto_pair)*fiat_pair
   percentage = ((Jump - 1000)/1000)*100
